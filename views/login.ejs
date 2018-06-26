@@ -7,6 +7,31 @@
 <body>
 <h1><%= title %></h1>
 <p>Please <%= title %></p>
+<div class="container text-center jumbotron" style="max-width: 400px">
+    <form class="form-signin">
+        <h1 style="padding: 20px">Please sign in</h1>
+
+        <div style="padding: 5px">
+        <label for="inputID" class="sr-only">ID</label>
+        <input type="text" id="inputID" class="form-control" placeholder="ID" required>
+        </div>
+
+        <div style="padding: 5px">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me">Remember me
+            </label>
+        </div>
+
+        <button class="btn" type="submit">Sign in</button>
+        <button class="btn" type="submit">Sign up</button>
+
+    </form>
+</div>
 <script src="https://ajax.gooleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
