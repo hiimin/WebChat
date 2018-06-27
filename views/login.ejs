@@ -8,17 +8,17 @@
 <h1><%= title %></h1>
 <p>Please <%= title %></p>
 <div class="container text-center jumbotron" style="max-width: 400px">
-    <form class="form-signin">
+    <form action="/login" class="form-signin" method="post">
         <h2 style="padding: 20px">sign in to webchat</h2>
 
         <div style="padding: 5px">
-        <label for="inputID" class="sr-only">ID</label>
-        <input type="text" id="inputID" class="form-control" placeholder="ID" required>
+        <label for="userID" class="sr-only">ID</label>
+        <input name="userID" id="userID" type="text" class="form-control" placeholder="ID" required>
         </div>
 
         <div style="padding: 5px">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="userPassword" class="sr-only">Password</label>
+        <input name="userPassword" id="userPassword" type="password" class="form-control" placeholder="Password" required>
         </div>
 
         <div class="checkbox">
@@ -28,7 +28,7 @@
         </div>
 
         <button class="btn" type="submit">Sign in</button>
-        <button class="btn" type="submit">Sign up</button>
+        <button class="btn" onclick="location.href='/signup'">Sign up</button>
 
     </form>
 </div>
