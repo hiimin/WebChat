@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup</title>
+    <title><%=title%></title>
     <link rel='stylesheet' href='css/bootstrap.css' />
 </head>
 <body>
-<h1>SignUp</h1>
+<h1><%=title%></h1>
 <div class="container text-center jumbotron" style="max-width: 400px">
-<form action="/join" method="post">
+<form action="/test" method="post">
     name : <input type="text" name="name"><br>
     id : <input type="text" name="id"><br>
     password : <input type="password" name="password"><br>
     confirmPW : <input type="password" name="confirmPW"><br>
-    <button class="btn" type="submit">Sign up</button>
+    <button class="btn">Sign up</button>
 </form>
 </div>
 <script src="https://ajax.gooleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/',function (req,res,next) {
-    var userID = req.body.userID;
+    let {userID} = req.body;
     var userPassword = req.body.userPassword;
 
     connection.query('select *from users where id = ?',userID, function (err,result) {
