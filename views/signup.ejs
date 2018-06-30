@@ -3,17 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title><%=title%></title>
-    <link rel='stylesheet' href='css/bootstrap.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <h1><%=title%></h1>
-<div class="container text-center jumbotron" style="max-width: 400px">
-<form action="/test" method="post">
-    name : <input type="text" name="name"><br>
-    id : <input type="text" name="id"><br>
-    password : <input type="password" name="password"><br>
-    confirmPW : <input type="password" name="confirmPW"><br>
-    <button class="btn">Sign up</button>
+<div class="jumbotron container" style="max-width: 400px">
+<form action="/signup" method="post">
+    <p>
+        <label for="input"><strong>name</strong></label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하시오" required>
+    </p>
+    <p>
+        <label for="input"><strong>ID</strong></label>
+        <input type="text" id="id" name="id" class="form-control" placeholder="ID를 입력하시오" required>
+    </p>
+    <p>
+        <label for="input"><strong>password</strong></label>
+        <input type="text" id="password" name="password" class="form-control" placeholder="비밀번호를 입력하시오" required>
+    </p>
+    <p>
+        <label for="input"><strong>confirm PW</strong></label>
+        <input type="text" id="confirmPW" name="confirmPW" class="form-control" placeholder="비밀번호 확인" required>
+    </p>
+    <!--<div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">name</span>
+        </div>
+        <input type="text" class="form-control" id="name" name ="name" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">id</span>
+        </div>
+        <input type="text" class="form-control" id="id" name="id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">password</span>
+        </div>
+        <input type="text" class="form-control" id="password" name="password" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">confirm password</span>
+        </div>
+        <input type="text" class="form-control" id="confirmPW" name="confirmPW" aria-describedby="basic-addon1" required>
+    </div>-->
+
+    <!--name : <input class="form-control" type="text" id="name" name="name" required><br>
+    id : <input class="form-control" type="text" id="id" name="id" required><br>
+    password : <input class="form-control" type="password" id="password" name="password" required><br>
+    confirmPW : <input class="form-control" type="password" id="confirmPW" name="confirmPW" required><br>-->
+    <button class="btn" type="submit" >Sign up and login</button>
 </form>
 </div>
 <script src="https://ajax.gooleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

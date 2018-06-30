@@ -3,7 +3,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const session = require('express-session'); //세션
+const bcrypt = require('bcrypt-nodejs');  //암호화
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -28,6 +30,7 @@ app.use('/users', usersRouter);
 app.use('/login',loginRouter);
 app.use('/signup',signupRouter);
 app.use('/test',testRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -45,5 +48,14 @@ app.use(function(err, req, res, next) {
 });
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(session({
+    secret: 'dl123wjd098als567',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.listen(200,function () {
+    console.log('Connected 3000 port');
+});
 
 module.exports = app;
