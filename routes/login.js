@@ -8,8 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/',function (req,res,next) {
-    let {userID} = req.body;
+    //let {userID} = req.body;
+    var userID = req.body.userID;
     var userPassword = req.body.userPassword;
+    var session = req.session;
 
     connection.query('select *from users where id = ?',userID, function (err,result) {
         if(err){
@@ -21,7 +23,10 @@ router.post('/',function (req,res,next) {
                 if(userPassword!=result[0].password) {
                     res.json({success: false, mag: '비밀번호가 일치하지 않습니다.'})
                 }else{
-                    res.json({success:true})
+                    //res.json({success:true})
+                    //세션 설정
+                    session.id = userID;
+                    res.redirect('/login');
                 }
             }
         }
