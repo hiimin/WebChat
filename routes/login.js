@@ -18,6 +18,7 @@ router.post('/',function (req,res,next) {
         if(err){
             console.log('err :'+err);
         }else{
+            //console.log(result[0].nickname);
             if(result.length ==0) {
                 res.json({success: false, msg: '해당 유저가 존재하지 않습니다.'})
             }else{
@@ -27,6 +28,7 @@ router.post('/',function (req,res,next) {
                     //res.json({success:true})
                     //세션 설정
                     session.userID = userID;
+                    session.nickname = result[0].nickname;
                     res.redirect('/');
                 }
             }
