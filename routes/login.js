@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../public/javascripts/dbconnection');
+//var session = require('express-session');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,12 +26,12 @@ router.post('/',function (req,res,next) {
                 }else{
                     //res.json({success:true})
                     //세션 설정
-                    session.id = userID;
-                    res.redirect('/login');
+                    session.userID = userID;
+                    res.redirect('/');
                 }
             }
         }
-    })
-})
+    });
+});
 
 module.exports = router;
