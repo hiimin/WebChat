@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var testRouter = require('./routes/test');
+var clientRouter = require('./routes/server');
 
 var app = express();
 
@@ -36,11 +37,12 @@ app.use(session({   //router 위에 있어야됨(이유..?)
     }
 }));
 
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login',loginRouter);
 app.use('/signup',signupRouter);
 app.use('/test',testRouter);
+app.use('/client.ejs',clientRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,8 +60,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+/*
 app.listen(200,function () {
     console.log('Connected 3000 port');
 });
+*/
 
 module.exports = app;
