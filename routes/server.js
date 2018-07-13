@@ -1,5 +1,6 @@
+/*
 var express = require('express');
-var router = express.Router();
+//var router = express.Router();
 var app = express();
 
 //socket.io를 사용하는 경우 app를 http에 연결시키고,
@@ -10,7 +11,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/',function (req,res) {    //모든 request는 client.ejs를 response하도록 설정
-    res.sendFile(__dirname+'client');
+    res.sendFile(__dirname+'/client.html');
+    //res.sendFile('client');
 });
 
 var count = 1;
@@ -39,6 +41,35 @@ io.on('connection',function (socket) {
     });
 });
 
-http.listen(3000,function () {      //app.listen이 아닌 http.listen
+http.listen(3000,function () {     //포트 3000에서 듣는 http서버
+    console.log('server on!');      //app.listen이 아닌 http.listen
+});*/
+var express = require('express');
+var app = express();
+var http = require('http').Server(app); //1
+var io = require('socket.io')(http);    //1
+
+app.get('/',function(req, res){  //2
+    res.sendFile(__dirname + '/client.html');
+});
+
+var count=1;
+io.on('connection', function(socket){ //3
+    console.log('user connected: ', socket.id);  //3-1
+    var name = "user" + count++;                 //3-1
+    io.to(socket.id).emit('change name',name);   //3-1
+
+    socket.on('disconnect', function(){ //3-2
+        console.log('user disconnected: ', socket.id);
+    });
+
+    socket.on('send message', function(name,text){ //3-3
+        var msg = name + ' : ' + text;
+        console.log(msg);
+        io.emit('receive message', msg);
+    });
+});
+
+http.listen(3000, function(){ //4
     console.log('server on!');
 });
